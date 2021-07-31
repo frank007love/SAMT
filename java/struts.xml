@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="default" extends="struts-default">
+
+		<!-- ajax related -->
+		<action name="groupList"
+			class="ntut.csie.samt.web.action.groupListAction" />
+		<action name="groupNameCheck"
+			class="ntut.csie.samt.web.action.checkGroupNameAction" />
+		<action name="addGroup"
+			class="ntut.csie.samt.web.action.addGroupAction" />
+		<action name="deleteGroup"
+			class="ntut.csie.samt.web.action.deleteGroupAction" />
+		<action name="groupMemberList"
+			class="ntut.csie.samt.web.action.groupMemberListAction" />
+		<action name="deletegroupMember"
+			class="ntut.csie.samt.web.action.deleteGroupMemberAction" />
+		<action name="getSvnURL"
+			class="ntut.csie.samt.web.action.getSvnURLAction" />
+		<action name="getAuthorizationPath"
+			class="ntut.csie.samt.web.action.getAuthorizationPathAction" />
+		<action name="getAuthenticationPath"
+			class="ntut.csie.samt.web.action.getAuthenticationPathAction" />
+		<action name="saveSAMTConfig"
+			class="ntut.csie.samt.web.action.saveSAMTPropertiesAction" />
+		<action name="modifyGroupName"
+			class="ntut.csie.samt.web.action.modifyGroupNameAction" />
+		<action name="pathMemberList"
+			class="ntut.csie.samt.web.action.pathMemberListAction" />
+		<action name="getPermission"
+			class="ntut.csie.samt.web.action.getPermissionAction" />
+		<action name="modifyPermission"
+			class="ntut.csie.samt.web.action.modifyPermissionAction" />
+		<action name="deletePermission"
+			class="ntut.csie.samt.web.action.deletePermissionAction" />
+		<action name="getAllMemberList"
+			class="ntut.csie.samt.web.action.getAllMemberListAction" />
+		<action name="addPermission"
+			class="ntut.csie.samt.web.action.addPermissionAction" />			
+		<action name="addGroupMember"
+			class="ntut.csie.samt.web.action.addGroupMemberAction" />		
+		<action name="accountList"
+			class="ntut.csie.samt.web.action.accountListAction" />	
+		<action name="accountIdCheck"
+			class="ntut.csie.samt.web.action.checkAccountIdAction" />
+		<action name="createAccount"
+			class="ntut.csie.samt.web.action.createAccountAction" />
+		<action name="deleteAccount"
+			class="ntut.csie.samt.web.action.deleteAccountAction" />
+		<action name="editAccount"
+			class="ntut.csie.samt.web.action.modifyAccountAction" />
+
+		<action name="importAAProfile"
+			class="ntut.csie.samt.web.action.importAAProfileAction" />
+		<action name="getSubFile"
+			class="ntut.csie.samt.web.action.getSubFileAction" />
+
+		<action  name="upLoadAAProfile"   class="ntut.csie.samt.web.action.upLoadAction" >
+            <!-- 限制檔案格式
+            <interceptor-ref name ="fileUpload" >
+                <param name ="allowedTypes" >
+                    text/xml
+                </param >
+            </interceptor-ref >    
+            <interceptor-ref name ="defaultStack" />  
+            -->
+            <result name="error">/importForm.jsp</result>      
+            <result name="success">/importProcess.jsp</result>    
+        </action > 
+
+	</package>
+
+
+</struts>

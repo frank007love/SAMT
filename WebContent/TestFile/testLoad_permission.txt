@@ -1,0 +1,65 @@
+#Ffeefe
+
+[groups]
+admin = franklin, @ST_team1
+ST_team1 = franklin,lenwind,frankcheng
+ST_team2 = thenewid,chihcheng,nickhades
+ST_team3 = thenewid, @ST_team1
+
+[/]
+*  = r
+@admin = rw
+
+#Ffeefe
+
+[/ST/Team1]
+@ST_team1 = rw
+* = 
+[/ST/Team2]
+* = 
+@ST_team2 = rw
+
+[/PSP/franklin]
+* = 
+franklin = rw
+[/PSP/frankcheng]
+* = 
+frankcheng = rw
+[/PSP/thenewid]
+* = 
+thenewid = rw
+[/PSP/chihcheng]
+* = 
+chihcheng = rw
+[/PSP/nickhades]
+* = 
+nickhades = rw
+
+[/OOAD/VMMS]
+* = 
+frankcheng = rw
+lenwind = rw
+[/OOAD/SAMT]
+* = 
+franklin = rw
+[/OOAD/DCAT]
+* = 
+chihcheng = rw
+[/OOAD/CSRM]
+* = 
+thenewid = rw
+[/OOAD/Reg4J]
+* = 
+nickhades = rw
+[/OOAD/VSTS]
+* = 
+bluewind = rw
+ccchang = rw
+
+
+
+
+
+
+
+

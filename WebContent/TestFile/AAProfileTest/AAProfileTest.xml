@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:AAProfile xmlns:p="jaxb.aaprofile.manager.samt.csie.ntut" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="jaxb.aaprofile.manager.samt.csie.ntut AAProfile.xsd ">
+  <p:Accounts>
+    <p:Account id="oph" passwd="1234"/>
+    <p:Account id="ztgao" passwd="1234"/>
+    <p:Account id="tshsu" passwd="1234"/>
+    <p:Account id="yc" passwd="1234"/>
+    <p:Account id="ctchen" passwd="1234"/>
+    <p:Account id="franklin" passwd="1234"/>
+    <p:Account id="lenwind" passwd="1234"/>
+    <p:Account id="frankcheng" passwd="1234"/>
+  </p:Accounts>
+  <p:Groups>
+      <p:Group id="admin">
+      	<p:GroupMebmer id="95" type="Group"/>
+      	<p:GroupMebmer id="tshsu" type="User"/>
+		<p:GroupMebmer id="ctchen" type="User"/>
+      </p:Group>
+      <p:Group id="96">
+      	<p:GroupMebmer id="franklin" type="User"/>
+      	<p:GroupMebmer id="lenwind" type="User"/>
+      	<p:GroupMebmer id="frankcheng" type="User"/>     
+      </p:Group>
+      <p:Group id="95">
+      	<p:GroupMebmer id="oph" type="User"/>
+      	<p:GroupMebmer id="ztgao" type="User"/>
+      </p:Group>
+      <p:Group id="old">
+      	<p:GroupMebmer id="yc" type="User"/>
+      	<p:GroupMebmer id="tshsu" type="User"/>
+      	<p:GroupMebmer id="ctchen" type="User"/>
+      </p:Group>
+  </p:Groups>
+   
+  <p:Permissions>
+    <p:Path name="/">
+      <p:PathMember id="*" type="Group" read="true" write="false"/>
+      <p:PathMember id="admin" type="Group" read="true" write="true"/>
+    </p:Path> 	
+    <p:Path name="/JCIS/Java">
+      <p:PathMember id="95" type="Group" read="true" write="true"/>
+      <p:PathMember id="96" type="Group" read="true" write="true"/>
+      <p:PathMember id="yc" type="User" read="true" write="false"/>
+    </p:Path>
+    <p:Path name="/JCIS/Test">
+      <p:PathMember id="95" type="Group" read="true" write="true"/>
+      <p:PathMember id="96" type="Group" read="true" write="true"/>
+    </p:Path>
+    <p:Path name="/TestingPath">
+      <p:PathMember id="95" type="Group" read="false" write="false"/>
+      <p:PathMember id="96" type="Group" read="false" write="true"/>
+    </p:Path>
+  </p:Permissions>
+   
+  <p:FolderList>
+  	<p:Folder name="JCIS" path="/JCIS"></p:Folder>
+  	<p:Folder name="TestingPath" path="/TestingPath"></p:Folder>
+  	<p:Folder name="Java" path="/JCIS/Java"></p:Folder>
+  	<p:Folder name="Test" path="/JCIS/Test"></p:Folder>
+  </p:FolderList>
+</p:AAProfile>

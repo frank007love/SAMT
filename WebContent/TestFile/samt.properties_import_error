@@ -1,0 +1,8 @@
+#SAMT properties
+#Wed Apr 23 13:45:10 CST 2008
+authentication.file=
+authorization.file=
+writable=false
+svn.url=http\://140.124.182.63/SAMTTestRP
+manageraccount=franklin
+managerpasswd=password

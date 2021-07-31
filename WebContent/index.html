@@ -1,0 +1,108 @@
+<html style="height:100%">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>DHTMLX Docs Explorer</title>
+<link rel="STYLESHEET" type="text/css" href="codebase/dhtmlxtree.css">
+<link rel="STYLESHEET" type="text/css" href="codebase/dhtmlxtabbar.css">
+
+<script  src="codebase/dhtmlxcommon.js"></script>
+<script  src="codebase/dhtmlxtabbar.js"></script>
+<!-- !!! Following is important inclusion -->
+<script  src="codebase/dhtmlxtabbar_start.js"></script>
+<script  src="codebase/dhtmlxtree.js"></script>
+</head>
+
+<body onload="loadTree();">
+
+	<script  src="codebase/dhtmlxcommon.js"></script>
+	<script  src="codebase/dhtmlxtree.js"></script>
+	<script>
+		String.prototype._dhx_trim = function(){
+                     return this.replace(/&nbsp;/g," ").replace(/(^[ \t\n\r]*)|([ \t\n\r]*$)/g,"");
+                  }
+		/* get node as incoming parameter */
+		var node=null;
+		var t=document.location.href.split("?");
+		var type=null;
+		var base=t[0].replace("/index.s?html","");
+		if(t[1]!=null){
+			var u=t[1].split("&");
+			for(var q=0;q<u.length;q++){
+				if((node==null)&&(u[q].split("=")[0]=="node")){
+					node=(u[q].split("=")[1]!=null?u[q].split("=")[1]:null);
+					if(node!=null){
+						if(node.length==0){
+							node=null;
+						}
+					};
+				}
+				if((type==null)&&(u[q].split("=")[0]=="type")){
+					type=(u[q].split("=")[1]!=null?u[q].split("=")[1]:null);
+				}
+			};
+		};
+		
+		
+		/* init tree */
+		var tree;
+		var tree_smpl
+		function loadTree(){
+			tree=new dhtmlXTreeObject("doctree_box","100%","100%",0);
+			tree.setImagePath("codebase/imgs/");
+			tree.setOnClickHandler(function(id){openPathDocs(id);});
+			tree.attachEvent("onOpenEnd",updateTreeSize)
+			tree.loadXML("xml/docs_tree.xml?nu=1",autoselectNode);	
+		}
+		function updateTreeSize(){
+			this.allTree.style.overflow = "visible";
+			this.allTree.style.height = this.allTree.scrollHeight+"px";
+			
+		}
+		function autoselectNode(){
+			if(type=="smpl"){
+				tree_smpl.selectItem(node,true);tree_smpl.openItem(node)
+			}else{
+				tree.selectItem(node,true);tree.openItem(node)
+			}
+		} 		
+		
+		function openPathDocs(id){
+
+			if(tree.getUserData(id,"thisurl")!=null){
+				window.frames.sampleframe.location.href = tree.getUserData(id,"thisurl");
+				return;
+			}
+			var entUrl = "";
+			var getFileFl = true;
+			var suffix = "#"+id
+			
+			do{
+				var url = tree.getUserData(id,"url");
+				if(url!=null){
+					if(getFileFl){
+						entUrl = url.toString()._dhx_trim()+suffix;
+						getFileFl = false;
+					}else{
+						var arTmp = url.split("/");
+						if(arTmp[arTmp.length-1].indexOf(".")!=-1){
+							arTmp[arTmp.length-1] = "";
+							url = arTmp.join("/");
+						}
+						if(url!="")
+							entUrl = url.toString()._dhx_trim()+"/"+entUrl;
+					}
+				}
+				id = tree.getParentId(id);
+			}while(id!="0")
+			
+			window.frames.sampleframe.location.href = entUrl
+		}		
+		
+	</script>
+	
+	<div id="doctree_box" style="width: 226px; height: 100%; "></div>
+	
+
+</body>
+</html>
+

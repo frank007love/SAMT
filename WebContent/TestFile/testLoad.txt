@@ -1,0 +1,7 @@
+#tetete
+
+[groups]
+admin = franklin , @ST_team1
+ST_team1 = franklin,lenwind,frankcheng
+ST_team2 = thenewid
+ST_team3 = 

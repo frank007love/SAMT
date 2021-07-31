@@ -1,0 +1,3 @@
+
+admin = test
+franklin = frank , tom , jack

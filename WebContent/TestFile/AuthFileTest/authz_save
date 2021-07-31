@@ -1,0 +1,12 @@
+[groups]
+
+[/]
+* = r
+@group1 = r
+
+[/JCIS/Java]
+
+[/JCIS/Java/Test]
+user1 = 
+@group1 = rw
+

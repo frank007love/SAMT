@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="jaxb.example"
+	targetNamespace="jaxb.example" elementFormDefault="qualified"> -->
+<xs:schema targetNamespace="jaxb.aaprofile.manager.samt.csie.ntut" elementFormDefault="qualified" xmlns="jaxb.aaprofile.manager.samt.csie.ntut"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema">	 
+ 
+	<xs:element name="AAProfile" type="AAProfile"></xs:element>
+
+	<xs:complexType name="AAProfile">
+		<xs:sequence>
+			<xs:element name="Accounts" type="Accounts" maxOccurs="1"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="Groups" type="Groups" maxOccurs="1"
+				minOccurs="0">
+			</xs:element>
+
+			<xs:element name="Permissions" type="Permissions"
+				maxOccurs="1" minOccurs="0">
+			</xs:element>
+
+			<xs:element name="FolderList" type="FolderList" maxOccurs="1" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Account">
+		<xs:attribute name="id" type="xs:string"></xs:attribute>
+		<xs:attribute name="passwd" type="xs:string"></xs:attribute>
+	</xs:complexType>
+
+
+    <xs:complexType name="Accounts">
+    	<xs:sequence>
+			<xs:element name="Account" type="Account" minOccurs="0"
+				maxOccurs="unbounded">
+			</xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+
+    <xs:complexType name="Groups">
+    	<xs:sequence>
+    		<xs:element name="Group" type="Group" maxOccurs="unbounded"
+    			minOccurs="0">
+    		</xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Group">
+    	<xs:sequence>
+    		<xs:element name="GroupMebmer" type="GroupMember" maxOccurs="unbounded"
+    			minOccurs="0"></xs:element>
+    	</xs:sequence>
+    	<xs:attribute name="id" type="xs:string"></xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="GroupMember">
+    	<xs:attribute name="id" type="xs:string"></xs:attribute>
+    	<xs:attribute name="type" type="xs:string"></xs:attribute>
+    </xs:complexType>
+
+
+
+    <xs:complexType name="Permissions">
+    	<xs:sequence>
+    		<xs:element name="Path" type="Path" maxOccurs="unbounded"
+    			minOccurs="0">
+    		</xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Path">
+    	<xs:sequence>
+    		<xs:element name="PathMember" type="PathMember"
+    			maxOccurs="unbounded" minOccurs="0">
+    		</xs:element>
+    	</xs:sequence>
+    	<xs:attribute name="name" type="xs:string"></xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="PathMember">
+    	<xs:attribute name="id" type="xs:string"></xs:attribute>
+    	<xs:attribute name="type" type="xs:string"></xs:attribute>
+    	<xs:attribute name="read" type="xs:boolean"></xs:attribute>
+    	<xs:attribute name="write" type="xs:boolean"></xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="FolderList">
+    	<xs:sequence>
+    		<xs:element name="Folder" type="Folder" maxOccurs="unbounded" minOccurs="0"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Folder">
+    	<xs:attribute name="name" type="xs:string"></xs:attribute>
+    	<xs:attribute name="path" type="xs:string"></xs:attribute>
+    </xs:complexType>
+
+</xs:schema>
